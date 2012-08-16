@@ -1,0 +1,65 @@
+/* Layout
+ * ------
+*/
+#page {
+  border: 6px solid #e5e5e5;
+  margin: 0 auto;
+  padding: 0 5px;
+  width: 1002px;
+}
+
+#content {
+
+}
+
+.sidebar {
+}
+
+#sidebar-second {
+}
+
+#footer {
+}
+
+#header,
+#footer,
+.mission,
+.breadcrumb,
+.node {
+}
+
+/* Sidebars width
+ * --------------
+ * Changing the width of the sidebars is dead easy, just change the
+ * values below corresponding to the sidebar you want to modify.
+ * Make sure you keep negative values as negative values.
+ * For example, if I want to increase the width of the left sidebar
+ * to 300px, I would have to change each '190' to '300'. */
+.two-sidebars .center,
+.sidebar-left .center {
+}
+
+#sidebar-first {
+}
+
+.two-sidebars .center,
+.sidebar-right .center {
+}
+
+#sidebar-second {
+}
+
+/* Columns Inner
+ * -------------
+ * You can change the padding inside the columns without changing the
+ * width of them by just usinbg the INNER div of each column */
+.inner {
+}
+
+#navigation {
+
+}
+
+.with-navigation #content,
+.with-navigation .sidebar {
+}
