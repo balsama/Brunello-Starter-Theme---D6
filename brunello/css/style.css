@@ -7,44 +7,35 @@ body {
 }
 
 /* Links */
-/* line 10, ../sass/style.sass */
 a:link, a:visited {
   color: 00a1d7;
   text-decoration: underline;
 }
 
-/* line 15, ../sass/style.sass */
 a:hover, a:active {
   color: 00a1d7;
   text-decoration: none;
 }
 
 /* Titles. */
-/* line 21, ../sass/style.sass */
 h1, h2, h3, h4, h5, h6 {
 }
 
-/* line 24, ../sass/style.sass */
 h1 {
 }
 
-/* line 30, ../sass/style.sass */
 h2 {
 }
 
-/* line 35, ../sass/style.sass */
 h3 {
 }
 
-/* line 39, ../sass/style.sass */
 h4 {
 }
 
-/* line 43, ../sass/style.sass */
 h5 {
 }
 
-/* line 48, ../sass/style.sass */
 h6 {
 }
 
