@@ -44,10 +44,16 @@ p {
   margin: 0 0 18px 0;
 }
 
-/* List styles. */
-ul, ol {
-  margin-left: 0;
-  padding-left: 0;
+/** 
+ * List styles.
+ * this is my personal preference (to default to no margin or padding.
+ *
+ * Change if you like
+ */
+ul, ol,
+ul li, ol li {
+  margin: 0;
+  padding: 0;
 }
 
 /* Table styles. */
