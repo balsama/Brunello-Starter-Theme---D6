@@ -11,12 +11,12 @@ if (theme_get_setting('brunello_zen_tabs')) {
 }
 
 /**
- *	This function creates the body classes that are relative to each page
+ * This function creates the body classes that are relative to each page
  *
- *	@param $vars
- *	  A sequential array of variables to pass to the theme template.
- *	@param $hook
- *	  The name of the theme function being called ("page" in this case.)
+ * @param $vars
+ *  A sequential array of variables to pass to the theme template.
+ * @param $hook
+ *  The name of the theme function being called ("page" in this case.)
  */
 
 function brunello_preprocess_page(&$vars, $hook) {
@@ -68,28 +68,6 @@ function brunello_preprocess_page(&$vars, $hook) {
       }
     }
   }
-  /*// Check what the user's browser is and add it as a body class
-    // DEACTIVATED - Only works if page cache is deactivated
-    $user_agent = $_SERVER['HTTP_USER_AGENT'];
-    if($user_agent) {
-      if (strpos($user_agent, 'MSIE')) {
-        $body_classes[] = 'browser-ie';
-      } else if (strpos($user_agent, 'MSIE 6.0')) {
-        $body_classes[] = 'browser-ie6';
-      } else if (strpos($user_agent, 'MSIE 7.0')) {
-        $body_classes[] = 'browser-ie7';
-      } else if (strpos($user_agent, 'MSIE 8.0')) {
-        $body_classes[] = 'browser-ie8'; 
-      } else if (strpos($user_agent, 'Firefox/2')) {
-        $body_classes[] = 'browser-firefox2';
-      } else if (strpos($user_agent, 'Firefox/3')) {
-        $body_classes[] = 'browser-firefox3';
-      }else if (strpos($user_agent, 'Safari')) {
-        $body_classes[] = 'browser-safari';
-      } else if (strpos($user_agent, 'Opera')) {
-        $body_classes[] = 'browser-opera';
-      }
-    }
   
   /** 
    * Add template suggestions based on content type
@@ -438,4 +416,45 @@ function brunello_breadcrumb($breadcrumb) {
   }
   // Otherwise, return an empty string.
   return '';
+}
+
+/**
+ * Custom function to return a filepath based on Drupal's fid
+ * (Surprisingly, drupal doesn't not provide this function)
+ *
+ * @param $fid
+ *  The fid of the file.
+ * @return
+ *  A string containing the path to the file.
+ */
+function fid_to_path($fid) {
+  $filepath = db_result(db_query("SELECT filepath FROM {files} WHERE fid = %d", $fid));
+  return $filepath;
+}
+
+/**
+ * Returns the content of an optional CCK link field.
+ *
+ * Field must:
+ * 1) Be optional
+ * 2) Have URL set to optional
+ * Obviously, you can customize this as you see fit. For example, this
+ * doesn't take into consideration the "Open link in new window" setting.
+ * 
+ *   @param $field:
+ *   The CCK link field, e.g. $node->field_my_link.
+ *
+ *   @param $delta
+ *   Integer, the delta of the field for multifields/groups. Defaults to 0.
+ */
+function format_cck_link($field, $delta=0) {
+  if (($field[$delta]['url'] == '') && ($field[$delta]['title'] == '')) {
+    return NULL;
+  }
+  elseif ($field[$delta]['url'] == '') {
+    return $field[$delta]['title'];
+  }
+  else {
+    return l($field[$delta]['title'], $field[$delta]['url']);
+  }
 }
