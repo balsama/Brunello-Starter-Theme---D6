@@ -6,6 +6,8 @@
     <?php print $head; ?>
     <?php print $styles; ?>
     <?php print $scripts; ?>
+    <!--[if IE 7]><link type="text/css" rel="stylesheet" media="all" href="/sites/betterforyou.com/themes/bfy/css/ie7.css" /><![endif]-->
+    <!--[if IE 8]><link type="text/css" rel="stylesheet" media="all" href="/sites/betterforyou.com/themes/bfy/css/ie8.css" /><![endif]-->
   </head>
 
   <body class="<?php print $body_classes; ?>">
